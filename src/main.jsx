@@ -53,6 +53,13 @@ const menu = [
 
 const categories = ['Todo', 'Café', 'Fríos', 'Bebidas', 'Comida', 'Postres'];
 
+const navigationItems = [
+  { label: 'Historia', href: '#historia' },
+  { label: 'Menú', href: '#menu' },
+  { label: 'Galería', href: '#galeria' },
+  { label: 'Visítanos', href: '#visitanos' },
+];
+
 const galleryPhotos = [
   { src: '/gallery/cafe.jpeg', alt: 'Bebida de chocolate con galleta Oreo en Le Chat Noir', title: 'Sabor que acompaña' },
   { src: '/gallery/cafe-3.jpeg', alt: 'Bebida fría cremosa frente al emblema de Le Chat Noir', title: 'Una pausa para ti' },
@@ -86,7 +93,7 @@ function App() {
       <a className="brand" href="#inicio" aria-label="Le Chat Noir, inicio"><img src="/logo.png" alt="Logo de Le Chat Noir" /><span>Le Chat<br/><em>Noir</em></span></a>
       <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Abrir menú">☰</button>
       <nav className={open ? 'open' : ''}>
-        {['Historia', 'Menú', 'Galería', 'Visítanos'].map((item) => <a key={item} href={`#${item.toLowerCase().replace('í', 'i')}`} onClick={() => setOpen(false)}>{item}</a>)}
+        {navigationItems.map((item) => <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>)}
         <a className="nav-cta" href="#contacto" onClick={() => setOpen(false)}>Reservar mesa</a>
       </nav>
     </header>
